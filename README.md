@@ -11,4 +11,4 @@
 - Ontology design methods
 - Data integration with RDF
 
-Each topic includes theoretical presentations and exercises
+Each topic includes lecture slides and corrected exercises

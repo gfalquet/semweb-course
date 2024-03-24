@@ -1,0 +1,2059 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usetheme{EastLansing} %{Copenhagen} % {Berlin} 
+\usecolortheme{crane}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Time in RDF
+\end_layout
+
+\begin_layout Author
+G.
+ Falquet
+\end_layout
+
+\begin_layout Institute
+CUI Université de Genève
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Time in RDF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Some approaches to introduce time in RDF
+\end_layout
+
+\begin_layout Standard
+a) Theoretical works
+\end_layout
+
+\begin_layout Itemize
+Extending RDF and OWL with validity time (Gutierrez et al., 2007) (Motik,
+ 2012) 
+\end_layout
+
+\begin_layout Itemize
+Temporal description logics (Lutz et Wolter, 2008) 
+\end_layout
+
+\begin_layout Standard
+b) Practical approaches
+\end_layout
+
+\begin_layout Itemize
+Reification
+\end_layout
+
+\begin_layout Itemize
+Named graphs
+\end_layout
+
+\begin_layout Itemize
+4D fluents
+\end_layout
+
+\begin_layout Itemize
+n-ary relation patterns
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Time
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Two temporal dimensions 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Flex Alert
+status open
+
+\begin_layout Plain Layout
+Valid time
+\begin_inset Flex Alert
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+is the time when data is valid in the modeled world; 
+\end_layout
+
+\begin_layout Block
+\begin_inset Flex Alert
+status open
+
+\begin_layout Plain Layout
+Transaction time
+\end_layout
+
+\end_inset
+
+ is the time when data is actually stored in the database.
+ 
+\end_layout
+
+\begin_layout Itemize
+The versioning approach captures transaction time
+\end_layout
+
+\begin_layout Itemize
+Labeling is mostly used when representing valid time.
+ 
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Introducing time into RDF
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Gutierrez, C., Hurtado, C.
+ A., & Vaisman, A.
+ (2007).
+ Introducing time into RDF.
+ IEEE Transactions on Knowledge and Data Engineering, 19(2), 207–218.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+Reference: 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Temporal Domain
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Point-based temporal domain 
+\end_layout
+
+\begin_layout Itemize
+Encode time-points in intervals when possible (clarity) 
+\end_layout
+
+\begin_layout Itemize
+Time as a discrete, linearly ordered domain, 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+as usual in virtually all temporal database applications.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ with 
+\begin_inset Formula $a\le b$
+\end_inset
+
+, denotes the closed interval from a to b, i.e 
+\begin_inset Formula $[a,a+1,a+2,\ldots,b]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Temporal Graph Definition
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A temporal triple is an RDF triple 
+\begin_inset Formula $(a,b,c)$
+\end_inset
+
+ with a temporal label 
+\begin_inset Formula $t$
+\end_inset
+
+ (a natural number).
+ 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Notation (a,b,c)[t].
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $(a,b,c)[t_{1},t_{2}]$
+\end_inset
+
+ denotes 
+\begin_inset Formula $\{(a,b,c)[t]\mid t_{1}\le t\le t_{2}\}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A temporal graph is a set of temporal triples.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Operations
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $G\mid_{t}$
+\end_inset
+
+, the slice at 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\{(a,b,c)[u]\in G\mid u=t\}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ all temporal triples with temporal label 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $u(G)$
+\end_inset
+
+, the underlying graph of G, is the set 
+\begin_inset Formula $\{(a,b,c)\mid(a,b,c)[t]\in G\textrm{ for some }t\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $G(t)$
+\end_inset
+
+, the snapshot of 
+\begin_inset Formula $G$
+\end_inset
+
+ at 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $G(t)\stackrel{def}{=}u(G\mid_{t})$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Temporal entailment
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+For ground temporal RDF graphs (no blank nodes)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Formula $G_{1}\models_{time}G_{2}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Block
+if and only if 
+\begin_inset Formula $G_{1}(t)\models G_{2}(t)$
+\end_inset
+
+ for each 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+For arbitrary temporal RDF graphs
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Formula $G_{1}\models_{time}G_{2}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Block
+if and only if for every ground instance 
+\begin_inset Formula $\mu_{1}(G_{1})$
+\end_inset
+
+ there exists a ground instance 
+\begin_inset Formula $\mu_{2}(G_{2})$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu_{1}G_{1}\models_{time}\mu_{2}G_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Example
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+(
+\begin_inset Formula $X,Y$
+\end_inset
+
+ are blank nodes)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G_{1}=\{(a,b,X)[3],(a,b,X)[4]\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G_{2}=\{(a,b,Y)[3],(a,b,X)[4]\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Entailments
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Formula $G_{1}\models_{time}G_{2}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Block
+\begin_inset Formula $G_{2}\not\models_{time}G_{1}$
+\end_inset
+
+ (e.g.
+ take 
+\begin_inset Formula $\mu_{2}(Y)=d,\mu_{2}(X)=e$
+\end_inset
+
+, and 
+\begin_inset Formula $d\ne e$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Problem with blank nodes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $G_{1}(t)\models G_{2}(t)$
+\end_inset
+
+ for each 
+\begin_inset Formula $t$
+\end_inset
+
+ does not imply 
+\begin_inset Formula $G_{1}\models_{time}G_{2}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+A blank node represents the 
+\begin_inset Flex Alert
+status open
+
+\begin_layout Plain Layout
+same
+\end_layout
+
+\end_inset
+
+ (unnamed) resource throughout the time range, rather than a sequence of
+ different resources.
+ 
+\end_layout
+
+\begin_layout Itemize
+Different from the classical setting.
+ 
+\end_layout
+
+\begin_layout Itemize
+Temporal marks are not only a relation among fixed objects, but also among
+ time-varying objects, the blank nodes.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Time arithmetics
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The notion of entailment for temporal RDF needs a basic arithmetic of intervals
+ in order to combine the notion of temporality and deductive properties.
+ For example, 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+if we have (a, subClassOf, c)[2; 3]; (c, subClassOf, d)[2], 
+\end_layout
+
+\begin_layout Itemize
+then we should be able to derive (a, subClassOf, d)[2], 
+\end_layout
+
+\begin_layout Itemize
+but not (a, subClassOf, d)[3] 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Anonymous time
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+To study temporal graphs that contain triples of the form 
+\begin_inset Formula $(a,b,c)[X]$
+\end_inset
+
+, where X is an anonymous timestamp, 
+\end_layout
+
+\begin_layout Itemize
+State that the triple 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $(a,b,c)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is valid in some unknown time.
+ 
+\end_layout
+
+\begin_layout Itemize
+! The set of anonymous timestamps and blank nodes are disjoint; 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+anonymous timestamps can be used to state that a set of triples occurred
+ at the same time, even though their valid time is unknown.
+ 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $(a,b,c)[T],(a,b',c')[T]$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A standard RDF graph can be made temporal by means of anonymous timestamps
+ and, thus, modeled as temporal graphs.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Entailment
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G_{1}\models_{timegen}G_{2}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+if and only if for each t-ground graph 
+\begin_inset Formula $\mu_{1}(G_{1})$
+\end_inset
+
+ (all the anonymous times have been replaced by time values), there is a
+ t-ground graph 
+\begin_inset Formula $\mu_{2}(G_{2})$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\mu_{1}(G_{1})\models_{time}\mu_{2}(G_{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Examples
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\{(a;subClassOf;b)[T_{1}];(b;subClassOf;c)[T_{1}]\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\models_{timegen}\{(a;subClassOf;c)[T_{2}]\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+But it is not the case that 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\{(a;subClassOf;b)[T_{2}];(b;subClassOf;c)[t_{1}]\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\models_{timegen}\{(a;subClassOf;c)[T_{2}]\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Query language
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+“Find the service providers who have offered a Web service between time
+ instants 0 and 2, and return them qualified by early providers.” 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+(?X,type,earlyProvider) & \leftarrow(?X,type,serviceProvider)[?T],\\
+ & (?S,providedBy,?X)[?T],0\le?T,?T\le2
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+asking for a snapshot of the graph at time 2, we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(?X;?Y;?Z)\leftarrow(?X;?Y;?Z)[2]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+“Find the services providers, along with the Web services they have offered,
+ and the time instants when this occurred.” 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(?X;hasprovided;?Y)[?T]\leftarrow(?Y;providedby;?X)[?T]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Practical approaches
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Problem: how to represent
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/temporal-triple.pdf
+	lyxscale 55
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How to implement entailment ?
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Reification
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+transform relations into objects
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/reification.pdf
+	lyxscale 55
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discussion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Representation 
+\end_layout
+
+\begin_layout Itemize
+complete 
+\end_layout
+
+\begin_layout Itemize
+replace 1 triple by ≥ 3 triples
+\end_layout
+
+\begin_layout Standard
+Queries become much more complex
+\end_layout
+
+\begin_layout LyX-Code
+select … where {?x ?p ?y} 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Downarrow$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+select … where 
+\end_layout
+
+\begin_layout LyX-Code
+{?s rdf:subject ?x; rdf:object ?y; rdf:predicate ?p} 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discussion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Reification is not taken into account in RDF, RDFS, OWL entailment 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ no reasoning on the temporal triples
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/reification-no-entailment.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Named graph technique
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Each named graph has an associated time interval and contains triples that
+ are valid for that time interval
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Tappolet, J.
+ and Bernstein, A., Applied Temporal RDF: Efficient Temporal Querying of
+ RDF Data with SPARQL.
+ In: Proceedings of the European Semantic Web Conference, LNCS 5554, (2009)
+ 308-22 
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+An additional graph is used as a catalog of the named graphs and the interval
+ associated with each.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout PlainFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/named-graph.pdf
+	lyxscale 50
+	height 85theight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/ngraph-1.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/ngraph-2.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/n-graph-3.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discussion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reduces the number of triples required over some other approaches.
+ 
+\end_layout
+
+\begin_layout Itemize
+Problem with blank nodes 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+B-nodes == existentially qualified variables 
+\end_layout
+
+\begin_layout Itemize
+the scope of quantification is the graph 
+\end_layout
+
+\begin_layout Itemize
+this approach puts statements about the same b-node for different time intervals
+ into different named graphs 
+\end_layout
+
+\begin_layout Itemize
+To avoid this problem 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+b-nodes are replaced by URIs thus allowing the use of off the shelf software
+ for processing RDF.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Named graphs are not part of description logic (not considered in OWL) 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+4D Fluents
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The 4D approach
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+C.
+ Welty and R.
+ Fikes.
+ A Reusable Ontology for Fluents in OWL.
+ In Formal Ontology in Information Systems B.
+ Bennett and C.
+ Fellbaum (Eds.) IOS Press, 2006.
+ 
+\end_layout
+
+\end_inset
+
+ is not something that immediately appeals to common sense, as statements
+ such as 
+\end_layout
+
+\begin_layout Quotation
+“Joe walked into the room” 
+\end_layout
+
+\begin_layout Standard
+must be represented as the logical equivalent of 
+\end_layout
+
+\begin_layout Quotation
+“A temporal part of Joe walked into a temporal part of the room”.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/4d-fluents-example.pdf
+	lyxscale 66
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discussion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Entirely compatible with RDF and OWL
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+except for synchronic reasoning (impossible to restrict inference to triples
+ that 
+\begin_inset Quotes eld
+\end_inset
+
+occur at the same time
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+RDF/S reasoners can be used to infer new facts
+\end_layout
+
+\begin_layout Itemize
+Proliferation of entities 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+each entity is represented by several slices 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+N-ary relation pattern for fluent relations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/n-ary-pattern.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+With events and temporal relations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/n-ary-fluent.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Entailment
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Non-temportal or basic temporal entailment can be expressed in OWL
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X\equiv\exists livesIn.(\exists during.(\exists hasBeginning.\{1900\})\sqcap\exists livesIn.EuropeanCity)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+More complex inferences must be expressed in SPARQL (SPIN)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Inference rule for a temporally functional property (has only one value
+ at a given instant)
+\end_layout
+
+\begin_layout LyX-Code
+insert (?y1 owl:sameAs ?y2) 
+\end_layout
+
+\begin_layout LyX-Code
+where {Q(?x, ?f1, ?y1, ?i1), 
+\end_layout
+
+\begin_layout LyX-Code
+       Q(?x, ?f2, ?y2, ?i2), 
+\end_layout
+
+\begin_layout LyX-Code
+      filter (overlaps(?i1, ?i2))}
+\end_layout
+
+\begin_layout Standard
+where 
+\end_layout
+
+\begin_layout LyX-Code
+Q(?X, ?F, ?Y, ?I) 
+\end_layout
+
+\begin_layout Standard
+represents
+\end_layout
+
+\begin_layout LyX-Code
+?F a FluentRelation.
+ ?X prop ?F.
+ ?F prop ?Y.
+ 
+\end_layout
+
+\begin_layout LyX-Code
+?F during ?I.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Inference that generate new nodes 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Representing the rule: 
+\end_layout
+
+\begin_layout Quote
+If a manuscript M is a letter from A to B and the writing time of M is [t1
+ ..
+ t2] then A knows B during [t1 ..
+ end of considered period]
+\end_layout
+
+\begin_layout LyX-Code
+INSERT {?A :knows 
+\end_layout
+
+\begin_layout LyX-Code
+  [a :FluentRelation ; 
+\end_layout
+
+\begin_layout LyX-Code
+   :during [a :TimeInterval ; 
+\end_layout
+
+\begin_layout LyX-Code
+             :hasBeginning ?t1; 
+\end_layout
+
+\begin_layout LyX-Code
+             :hasEnd :end-of-period]; 
+\end_layout
+
+\begin_layout LyX-Code
+   :knows ?B]}
+\end_layout
+
+\begin_layout LyX-Code
+ WHERE {?L a :Letter; :author ?A; 
+\end_layout
+
+\begin_layout LyX-Code
+         :to ?B; writingDate ?t1} 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ creation of a new blank node
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discussion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Compatible with RDFs/OWL entailment, except for synchronic reasoning
+\end_layout
+
+\begin_layout Standard
+Creation of new nodes when infering new temporal facts 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ potentially infinite computations, unless
+\end_layout
+
+\begin_layout Itemize
+no redundant fluent is created
+\end_layout
+
+\begin_layout Itemize
+the created nodes are never used in a subjet or object position in a new
+ fluent assertion
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\end_body
+\end_document

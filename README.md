@@ -1,6 +1,5 @@
 # A Course on Semantic Web Technologies
 
-
 - RDF and RDFS graph modeling languages
 - SPARQL and GeoSPARQL graph query languages
 - Description logics and OWL
@@ -10,5 +9,6 @@
 - Knowledge graphs
 - Ontology design methods
 - Data integration with RDF
+- Graph embeddings
 
-Each topic includes lecture slides and corrected exercises.
+Each topic includes lecture slides and corrected exercises...

@@ -1,0 +1,3505 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+%\usepackage{beamerthemeMadrid}%dark %tab
+%\usepackage{beamerthemeAnnArbor}
+%\usepackage{beamerthemeSingapore}
+%\usetheme{metropolis}  
+\usepackage{beamerthemeBoadilla}  
+%\usecolortheme{crane} 
+
+\logo{logo \insertframenumber/\inserttotalframenumber}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Reasoning algorithms for description logics
+\end_layout
+
+\begin_layout Author
+G.
+ Falquet
+\end_layout
+
+\begin_layout Institute
+Université de Genève
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Objectives
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Given a set of axioms 
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+ (TBox, RBox, Abox) infer implicit knowledge 
+\end_layout
+
+\begin_layout Itemize
+subsumption: 
+\begin_inset Formula $\mathcal{O}\models C\sqsubseteq D$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+consistency: for each class 
+\begin_inset Formula $C$
+\end_inset
+
+ there is a model 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+ such that 
+\begin_inset Formula $C^{\mathcal{I}}$
+\end_inset
+
+ is not empty
+\end_layout
+
+\begin_layout Itemize
+instance checking: check if if 
+\begin_inset Formula $\mathcal{O}\models C(a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Remarks
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $C\sqsubseteq D$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $C\sqcap\lnot D$
+\end_inset
+
+ is not satisfiable.
+ 
+\end_layout
+
+\begin_layout Enumerate
+C is subsumed by D iff for any domain 
+\begin_inset Formula $\triangle$
+\end_inset
+
+ and any extension function 
+\begin_inset Formula $I$
+\end_inset
+
+ over 
+\begin_inset Formula $\triangle$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I(C)\subseteq I(D)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+A structural algorithm
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Works only for 
+\begin_inset Formula $\mathcal{FL}^{-}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{FL}^{-}$
+\end_inset
+
+ is limited to 
+\begin_inset Formula $A\mid C\sqcap D\mid\forall R.C\mid\exists R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2-phases algorithm: 
+\end_layout
+
+\begin_layout Enumerate
+Normalization 
+\end_layout
+
+\begin_layout Enumerate
+Recursive comparison
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Normalization
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Flatten all embedded conjunctions : 
+\begin_inset Formula 
+\[
+A\sqcap(B\sqcap C)\rightarrow A\sqcap B\sqcap C
+\]
+
+\end_inset
+
+Factorize all conjunctions of universal quantifiers over the same role 
+\begin_inset Formula 
+\[
+\forall R.C\sqcap\forall R.D\rightarrow\forall R.(C\sqcap D)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The 
+\begin_inset Formula $\mathsf{\sqsubseteq}(C,D)$
+\end_inset
+
+ algorithm
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Let 
+\begin_inset Formula $C=C_{1}\sqcap\cdots\sqcap C_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $D=D_{1}\sqcap\cdots\sqcap D_{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sqsubseteq(C,D)$
+\end_inset
+
+ returns 
+\begin_inset Formula $\mathbf{true}$
+\end_inset
+
+ iff for every 
+\begin_inset Formula $D_{j}$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Enumerate
+if 
+\begin_inset Formula $D_{j}$
+\end_inset
+
+ is atomic or of the form 
+\begin_inset Formula $\exists R$
+\end_inset
+
+ then there exists 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ such that 
+\begin_inset Formula $C_{i}=D_{j}$
+\end_inset
+
+; 
+\end_layout
+
+\begin_layout Enumerate
+if 
+\begin_inset Formula $D_{j}$
+\end_inset
+
+ is of the form 
+\begin_inset Formula $\forall R.D'$
+\end_inset
+
+ then there exists 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ of the form 
+\begin_inset Formula $\forall R.C'$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathsf{\sqsubseteq}(C',D')$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Exercise
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Use the algorithm to check
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathsf{Adult}\sqcap\mathsf{Male\sqsubseteq\mathsf{Adult}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathsf{Adult}\sqcap\mathsf{Male\sqcap\mathsf{Rich}\sqsubseteq\mathsf{Rich}\sqcap\mathsf{Adult}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\forall\mathsf{child}.(\mathsf{Adult}\sqcap\mathsf{Male})\sqsubseteq\forall\mathsf{child}.\mathsf{Adult}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\forall\mathsf{child}.\mathsf{Adult}\sqcap\mathsf{\exists child}\sqsubseteq\forall\mathsf{child}.\mathsf{Adult}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\forall\mathsf{child}.\mathsf{Adult}\not\sqsubseteq\exists\mathsf{child}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\exists\mathsf{child\not\sqsubseteq}\forall\mathsf{child}.\mathsf{Adult}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Properties of the algorithm
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Time
+\begin_inset space ~
+\end_inset
+
+complexity 
+\begin_inset Formula $O(\left|C\right|\times\left|D\right|)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Soundness The algorithm is sound.
+ Whenever is answers 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+ then 
+\begin_inset Formula $C$
+\end_inset
+
+ is subsumed by 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Completeness Whenever 
+\begin_inset Formula $C\sqsubseteq D$
+\end_inset
+
+ the algorithm answers 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Limits of structural algorithms
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Algorithms based on a syntactic analysis cannot handle more complex logics.
+\end_layout
+
+\begin_layout Itemize
+For instance,
+\begin_inset Formula $A\sqcup\neg A$
+\end_inset
+
+ subsumes any concept 
+\begin_inset Formula $C$
+\end_inset
+
+ even if 
+\begin_inset Formula $C$
+\end_inset
+
+ does not mention 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Tableau algorithms
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Tableau algorithm prove the non satisfiability of a concept by trying to
+ build a model.
+\end_layout
+
+\begin_layout Standard
+They take advantage of the 
+\begin_inset Quotes eld
+\end_inset
+
+tree model property
+\begin_inset Quotes erd
+\end_inset
+
+: if there is a model then there is a model that has a tree shape (the object-re
+lation graph is a tree)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+TBox and ABox
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $N_{C}$
+\end_inset
+
+ : set of concept names 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $N_{R}$
+\end_inset
+
+ : role names 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $N_{I}$
+\end_inset
+
+ : individual names 
+\end_layout
+
+\begin_layout Standard
+ABox : set of assertions of the form 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C(a)$
+\end_inset
+
+, 
+\begin_inset Formula $C$
+\end_inset
+
+ is a concept expression, 
+\begin_inset Formula $a$
+\end_inset
+
+ an individual
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r(a,b)$
+\end_inset
+
+, 
+\begin_inset Formula $r$
+\end_inset
+
+ is a role name 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Model of an ABox
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Interpretation 
+\begin_inset Formula $I$
+\end_inset
+
+ of the roles and concept such that 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $I$
+\end_inset
+
+ assigns to each individual 
+\begin_inset Formula $a$
+\end_inset
+
+ an object 
+\begin_inset Formula $I(a)\in\Delta$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+if 
+\begin_inset Formula $C(a)$
+\end_inset
+
+ is in the ABox then 
+\begin_inset Formula $I(a)\in I(C)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+if 
+\begin_inset Formula $r(a,b)$
+\end_inset
+
+ is in the ABox then 
+\begin_inset Formula $(I(a),I(b))\in I(r)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Description
+Consistency An ABox is consistent if it has a model.
+\end_layout
+
+\begin_layout Description
+Instance An individual 
+\begin_inset Formula $a$
+\end_inset
+
+ is an instance of 
+\begin_inset Formula $C$
+\end_inset
+
+ if in every model 
+\begin_inset Formula $I$
+\end_inset
+
+ of the ABox 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $I(a)\in I(C)$
+\end_inset
+
+.
+ Notation 
+\begin_inset Formula $A\models C(a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Reformulation 
+\begin_inset Formula $A\models C(a)$
+\end_inset
+
+ iff 
+\begin_inset Formula $A\cup\{\lnot C(a)\}$
+\end_inset
+
+ is inconsistant
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+From acyclic TBoxes to ABoxes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+If a TBox has no circular definition it is always possible to rewrite every
+ concept definition 
+\begin_inset Formula 
+\[
+C\equiv Expr
+\]
+
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+C\equiv Expr'
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $Expr'$
+\end_inset
+
+ contains only basic (not defined) concept names.
+\end_layout
+
+\begin_layout Standard
+Then if the ABox contains 
+\begin_inset Formula $C(a)$
+\end_inset
+
+ it can be rewritten as 
+\begin_inset Formula $Expr'(a)$
+\end_inset
+
+.
+ This is a way to empty the TBox 
+\end_layout
+
+\begin_layout Itemize
+This process may produce an exponentially large ABox.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Satisfiability Algorithm
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+To test the satisfiability of 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The algorithm tries to build a model 
+\begin_inset Formula $I$
+\end_inset
+
+ in which 
+\begin_inset Formula $I(C)$
+\end_inset
+
+ is not empty.
+\end_layout
+
+\begin_layout Enumerate
+put 
+\begin_inset Formula $C$
+\end_inset
+
+ in negative normal form (all negations beside atomic concept)
+\end_layout
+
+\begin_layout Enumerate
+crate an initial set of ABoxes: 
+\begin_inset Formula $\{\{C(a)\}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+exhaustively apply the production rules 
+\end_layout
+
+\begin_layout Enumerate
+if there is an ABox without 
+\emph on
+clash
+\emph default
+ (inconsistency) then 
+\begin_inset Formula $C$
+\end_inset
+
+ is satisfiable, otherwise it is inconsistent.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Rules for 
+\begin_inset Formula $\sqcap$
+\end_inset
+
+ and 
+\begin_inset Formula $\sqcup$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+For an ABox 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ generate one or two new ABoxes 
+\begin_inset Formula $\mathcal{A}'$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{A}''$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\rightarrow_{\sqcap}$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+rule if 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ contains 
+\begin_inset Formula $(C\sqcap D)(x)$
+\end_inset
+
+ but not 
+\begin_inset Formula $C(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $D(x)$
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+then 
+\begin_inset Formula $A'$
+\end_inset
+
+ = 
+\begin_inset Formula $\mathcal{A}'=\mathcal{A}\cup\{C(x),D(x)\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Description
+\begin_inset Formula $\rightarrow_{\sqcup}$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+rule if 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ contains 
+\begin_inset Formula $(C\sqcup D)(x)$
+\end_inset
+
+ but neither 
+\begin_inset Formula $C(x)$
+\end_inset
+
+ nor 
+\begin_inset Formula $D(x)$
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+then 
+\begin_inset Formula $\mathcal{A}'=\mathcal{A}\cup\{C(x)\}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{A}''=\mathcal{A}A\cup\{D(x)\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Rules for 
+\begin_inset Formula $\exists$
+\end_inset
+
+ and 
+\begin_inset Formula $\forall$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+For an ABox 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ generate one or two new ABoxes 
+\begin_inset Formula $\mathcal{A}'$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{A}''$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\rightarrow_{\exists}$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+rule if 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ contains 
+\begin_inset Formula $(\exists r.C)(x)$
+\end_inset
+
+ but no individual name z such that 
+\begin_inset Formula $C(z)$
+\end_inset
+
+ and 
+\begin_inset Formula $r(x,z)$
+\end_inset
+
+ are in 
+\begin_inset Formula $A$
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+then 
+\begin_inset Formula $\mathcal{A}'=\mathcal{A}\cup\{C(y),r(x,y)\}$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Description
+\begin_inset Formula $\rightarrow_{\forall}$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+rule if 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ contains 
+\begin_inset Formula $(\forall r.C)(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $r(x,y)$
+\end_inset
+
+ but not 
+\begin_inset Formula $C(y)$
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+then 
+\begin_inset Formula $\mathcal{A}'=\mathcal{A}\cup\{C(y)\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Rules for number restrictions
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $\rightarrow_{\geq}$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+rule if 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ contains 
+\begin_inset Formula $(\geq n\:R)(x)$
+\end_inset
+
+ but not 
+\begin_inset Formula $R(x,z_{i})$
+\end_inset
+
+ 
+\begin_inset Formula $(1\leq i\leq n)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathsf{diff}(z_{i},z_{j})$
+\end_inset
+
+ 
+\begin_inset Formula $(1\leq i<j\leq n)$
+\end_inset
+
+ where 
+\begin_inset Formula $z_{1},\ldots,z_{n}$
+\end_inset
+
+ are individual names 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+then 
+\begin_inset Formula $\mathcal{A}'$
+\end_inset
+
+ = 
+\begin_inset Formula $A\cup\{R(x,y_{1}),\ldots,R(x,y_{n})\}\cup$
+\end_inset
+
+ 
+\begin_inset Formula $\{\mathsf{diff}(y_{1},y_{2}),\mathsf{diff}(y_{1},y_{3})\ldots,\mathsf{diff}(y_{n-1},y_{n})\}$
+\end_inset
+
+ where 
+\begin_inset Formula $y_{1},\ldots,y_{n}$
+\end_inset
+
+ are new individual names.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Description
+\begin_inset Formula $\rightarrow_{\leq}$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+rule if 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ contains 
+\begin_inset Formula $(\leq n\:R)(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $R(x,y_{1}),\ldots,R(x,y_{n+1})$
+\end_inset
+
+, and 
+\begin_inset Formula $\mathsf{diff}(y_{i},y_{j})$
+\end_inset
+
+ is not in 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ for some 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+then for each pair 
+\begin_inset Formula $i>j$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathsf{diff}(y_{i},y_{j})$
+\end_inset
+
+ is not in 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ do 
+\begin_inset Formula $\mathcal{A}'=\mathcal{A}\cup$
+\end_inset
+
+ the ABox 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ where 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ is replaced by 
+\begin_inset Formula $y_{j}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Example
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+TBox 
+\begin_inset Formula $T$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C\equiv\exists R.E$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $D\equiv A\sqcup\exists R.F$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $F\equiv E\sqcup G$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We want to prove that this TBox entails 
+\begin_inset Formula $C\sqsubseteq D$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+This amounts to prove that 
+\begin_inset Formula $T\cup\{C\sqcap\neg D\}$
+\end_inset
+
+ is inconsistent.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $C\sqcap\neg D$
+\end_inset
+
+ is inconsistent if we cannot find a model for 
+\begin_inset Formula $(C\sqcap\neg D)(a)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Expanding 
+\begin_inset Formula $(C\sqcap\neg D)(a)$
+\end_inset
+
+ with the axioms yields
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $((\exists R.E)\sqcap\neg(A\sqcup\exists R.F))(a)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\equiv((\exists R.E)\sqcap\neg(A\sqcup\exists R.(E\sqcup G)))(a)$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+In negative normal form:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\equiv(\exists R.E)\sqcap(\neg A\sqcap\neg\exists R.(E\sqcup G)))(a)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\equiv(\exists R.E)\sqcap(\neg A\sqcap\forall R.(\neg E\sqcap\neg G)))(a)$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Rule applications
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+ABox expansion
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $A_{0}=\{(\exists R.E)\sqcap(\neg A\sqcap\forall R.(\neg E\sqcap\neg G)))(a)\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Formula $A_{1}=A_{0}\cup\{(\exists R.E)(a),\neg A(a),(\forall R.(\neg E\sqcap\neg G))(a)\}$
+\end_inset
+
+ (
+\begin_inset Formula $\sqcap$
+\end_inset
+
+ rule)
+\end_layout
+
+\begin_layout Block
+\begin_inset Formula $A_{2}=A_{1}\cup\{R(a,b),E(b)\}$
+\end_inset
+
+ (
+\begin_inset Formula $\exists$
+\end_inset
+
+ rule)
+\end_layout
+
+\begin_layout Block
+\begin_inset Formula $A_{3}=A_{2}\cup\{(\neg E\sqcap\neg G)(b),\neg E(b),\neg G(b)\}$
+\end_inset
+
+ (
+\begin_inset Formula $\forall$
+\end_inset
+
+ rule and 
+\begin_inset Formula $\sqcap$
+\end_inset
+
+ rule)
+\end_layout
+
+\begin_layout Standard
+There is a clash in 
+\begin_inset Formula $A_{3}$
+\end_inset
+
+, it contains 
+\begin_inset Formula $E(b)$
+\end_inset
+
+ and 
+\begin_inset Formula $\neg E(b)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+There is no other ABox, hence 
+\begin_inset Formula $C\sqcap\neg D$
+\end_inset
+
+ is inconsistent
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Properties of the algorithm
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+rule application always terminates (no infinite loop).
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $C$
+\end_inset
+
+ is consistent iff the algorithm produced at least one clash-free ABox 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Standard
+An ABox 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ has a clash if one of these conditions is true
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\{\bot(x)\}\subseteq\mathcal{A}$
+\end_inset
+
+ for some individual name 
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\{B(x),\neg B(x)\}\subseteq\mathcal{A}$
+\end_inset
+
+ for some individual name 
+\begin_inset Formula $x$
+\end_inset
+
+ and some concept name 
+\begin_inset Formula $B$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\{(\leq n\:R)(x)\}\cup\{R(x,y_{1}),\ldots,R(x,y_{n+1})\}\cup\{\mathsf{diff}(y_{i},y_{j})|1\leq i<j\leq n+1\}\subseteq A$
+\end_inset
+
+ for individual names 
+\begin_inset Formula $x,y_{1},\ldots,y_{n_{+1}}$
+\end_inset
+
+, 
+\begin_inset Formula $n>0$
+\end_inset
+
+, and 
+\begin_inset Formula $R$
+\end_inset
+
+ a role name.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Complexity (AND Branching)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The size of the ABox set generated during the process may be exponential
+ in the size of 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+e.g.
+ for the following family of ABoxes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{1}:=\exists r.A\sqcap\exists r.B,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{2}:=\exists r.A\sqcap\exists r.B\sqcap\forall r(\exists r.A\sqcap\exists r.B),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\ldots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{n+1}:=\exists r.A\sqcap\exists r.B\sqcap\forall r.C_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+ABox for 
+\begin_inset Formula $C_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(\exists r.A\sqcap\exists r.B)(a_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+complete ABox: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\{\ldots,r(a_{1},a'),r(a_{1},b'),A(a'),B(b')\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+ABox for 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(\exists r.A\sqcap\exists r.B\sqcap\forall r(\exists r.A\sqcap\exists r.B))(a_{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+complete ABox: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{rcl}
+\{\ldots, & r(a_{2},a_{1}),r(a_{2},b_{1}),A(a_{1}),B(b_{1}),\\
+ & r(a_{1},a'),r(a_{1},b'),A(a'),B(b'),\\
+ & r(b_{1},a''),r(b_{1},b''),A(a''),B(b'') & \}
+\end{array}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exponential growth (doubles at each level)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Complexity (OR Branching)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Checking the satisfiability of
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(\exists R.A)\sqcap(\exists R.(\text{¬}A\sqcap¬B))\sqcap(\exists R.B)\sqcap\leq2R
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To satisfy the 
+\begin_inset Formula $\exists$
+\end_inset
+
+ we must generate
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R(a,x_{1}),A(x_{1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R(a,x_{2}),(\neg A\sqcap\neg B)(x_{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R(a,x_{3}),B(x_{3})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To satisfy 
+\begin_inset Formula $\leq2R$
+\end_inset
+
+ we must generate (and explore) 3 cases
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $x_{1}=x_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+or 
+\begin_inset Formula $x_{2}=x_{3}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+or 
+\begin_inset Formula $x_{1}=x_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+For general TBoxes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Remark.
+ A TBox 
+\begin_inset Formula 
+\[
+\{C_{1}\sqsubseteq D_{1},\ldots,C_{n}\sqsubseteq D_{n}\}
+\]
+
+\end_inset
+
+ is equivalent to the TBox 
+\begin_inset Formula 
+\[
+\{\top\sqsubseteq((\neg C_{1}\sqcup D_{1})\sqcap\cdots\sqcap(\neg C_{n}\sqcup D_{n}))\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus we can consider a TBox with a single axiom of the form 
+\begin_inset Formula 
+\[
+\top\sqsubseteq C
+\]
+
+\end_inset
+
+.i.e.
+ every object of the domain must belong to the interpretation of 
+\begin_inset Formula $C$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Additional rule
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+To represent the TBox axiom 
+\begin_inset Formula $\top\sqsubseteq C$
+\end_inset
+
+ we add a new rule
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\rightarrow_{\top\sqsubseteq C}$
+\end_inset
+
+-rule if the individual name 
+\begin_inset Formula $x$
+\end_inset
+
+ appears in the ABox and 
+\begin_inset Formula $C(x)$
+\end_inset
+
+ is not present, add 
+\begin_inset Formula $C(x)$
+\end_inset
+
+ to the ABox 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Blocking
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+If the TBox is cyclic, the 
+\begin_inset Formula $\rightarrow_{\exists}$
+\end_inset
+
+-rule may create infinite sequences of individuals connected through roles,
+ although a finite model may exist.
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Blocked rule
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The application of the 
+\begin_inset Formula $\rightarrow_{\exists}$
+\end_inset
+
+-rule to an individual 
+\begin_inset Formula $x$
+\end_inset
+
+ is blocked by an individual 
+\begin_inset Formula $y$
+\end_inset
+
+ if
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x$
+\end_inset
+
+ is younger than 
+\begin_inset Formula $y$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $x$
+\end_inset
+
+ has been introduced by an 
+\begin_inset Formula $\rightarrow_{\exists}$
+\end_inset
+
+-rule after the introduction of 
+\begin_inset Formula $y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x$
+\end_inset
+
+ has no more constraints than 
+\begin_inset Formula $y$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\{C:C(x)\in\mathsf{ABox}\}\subseteq\{C:C(y)\in\mathsf{ABox}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The idea is that we can use 
+\begin_inset Formula $y$
+\end_inset
+
+ instead of 
+\begin_inset Formula $x$
+\end_inset
+
+ to create a model.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+OWL 2 RL and rule-based reasoning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For RDFS there is a set of IF ...
+ THEN ...
+ rules that can generate all the consequences of a set of axioms
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+IF (
+\begin_inset Formula $x$
+\end_inset
+
+ 
+\begin_inset Formula $p$
+\end_inset
+
+ 
+\begin_inset Formula $y$
+\end_inset
+
+) and (
+\begin_inset Formula $p$
+\end_inset
+
+ rdfs:range 
+\begin_inset Formula $c$
+\end_inset
+
+) THEN (
+\begin_inset Formula $y$
+\end_inset
+
+ rdf:type 
+\begin_inset Formula $c$
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+It is not the case with OWL 2
+\end_layout
+
+\begin_layout Itemize
+But it is possible on some sublanguages of OWL
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\lang australian
+OWL 2 RL
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\lang australian
+[1] https://www.w3.org/TR/owl2-profiles/#OWL_2_RL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+An OW 2 profile with syntactic restrictions
+\end_layout
+
+\begin_layout Itemize
+Aimed at efficient reasoning with rule-based systems
+\end_layout
+
+\begin_layout Standard
+With a set of inference rules for reasoning
+\end_layout
+
+\begin_layout Itemize
+complete reasoning for the OWL 2 RL profile (see Theorem PR1 in [1])
+\end_layout
+
+\begin_layout Itemize
+incomplete reasoning for OWL 2
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+OWL 2 RL definition by syntactic restrictions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+In an axiom 
+\begin_inset Formula $Left\sqsubseteq Right$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Left$
+\end_inset
+
+ may be
+\end_layout
+
+\begin_layout Standard
+a class name (except owl:Thing), 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E\mathbf{\,and\,}F$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E\mathbf{\,or}\,F$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R\mathbf{\,some\,}C$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R\mathbf{\,hasValue\,}v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{oneOf\,}(\ldots)$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Right$
+\end_inset
+
+ may be
+\end_layout
+
+\begin_layout Standard
+a class name (except owl:Thing),
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E\mathbf{\,and\,}F$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{not\,}C$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R\mathbf{\,only\,}C$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R\mathbf{\,hasValue\,}v$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{max\,}0/1\,C$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Inference Rules for Individuals
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Basic rule: if the ontology contains 
+\begin_inset Formula 
+\[
+X\sqsubseteq Y
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+X(a)
+\]
+
+\end_inset
+
+ it entails 
+\begin_inset Formula 
+\[
+Y(a)
+\]
+
+\end_inset
+
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+shape
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Formula $X$
+\end_inset
+
+and 
+\begin_inset Formula $Y$
+\end_inset
+
+ determines inference rules
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Left rules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+and
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $E\mathbf{\,and}\,F\sqsubseteq Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow(E\mathbf{\,and}\,F)(x)\to Y(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow E(x)\land F(x)\to Y(x)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Block
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+or
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $E\mathbf{\,or}\,F\sqsubseteq Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow(E\mathbf{\,or}\,F)(x)\to Y(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow E(x)\lor F(x)\to Y(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow E(x)\to Y(x),F(x)\to Y(x)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\lang australian
+Rules for OWL 2 RL in RDF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Intersection
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+?c owl:intersectionOf (?c1, ..., ?cn)
+\end_layout
+
+\begin_layout LyX-Code
+?y, rdf:type, ?c1
+\end_layout
+
+\begin_layout LyX-Code
+?y, rdf:type, ?c2
+\end_layout
+
+\begin_layout LyX-Code
+...
+ 
+\end_layout
+
+\begin_layout LyX-Code
+?y, rdf:type, ?cn
+\end_layout
+
+\begin_layout LyX-Code
+--->
+\end_layout
+
+\begin_layout LyX-Code
+?y rdf:type ?c
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Union
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+?C owl:unionOf ?x .
+\end_layout
+
+\begin_layout LyX-Code
+?x rdf:rest*/rdf:first ?Ci .
+\end_layout
+
+\begin_layout LyX-Code
+?y rdf:type ?Ci .
+\end_layout
+
+\begin_layout LyX-Code
+--->
+\end_layout
+
+\begin_layout LyX-Code
+?y rdf:type ?C .
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Left rules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+some
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $R\mathbf{\,some}\,C\sqsubseteq Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow(R\mathbf{\,some}\,C)(x)\to Y(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow\exists y:C(y)\land R(x,y)\to Y(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Leftrightarrow C(y)\land R(x,y)\to Y(x)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Block
+
+\end_layout
+
+\begin_layout Block
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $R\mathbf{\,hasValue\,}v$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $R\mathbf{\,has\,value}\,v\sqsubseteq Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow R(x,v)\to Y(x)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\lang australian
+...
+ for OWL 2 RL in RDF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+some
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+?X owl:someValuesFrom ?Y .
+     
+\end_layout
+
+\begin_layout LyX-Code
+?X owl:onProperty, ?p  .
+       
+\end_layout
+
+\begin_layout LyX-Code
+?u ?p ?v .
+                     
+\end_layout
+
+\begin_layout LyX-Code
+?v rdf:type ?Y .
+               
+\end_layout
+
+\begin_layout LyX-Code
+--->                            
+\end_layout
+
+\begin_layout LyX-Code
+?u rdf:type ?X .
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+hasValue
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+?x owl:hasValue ?v.
+\end_layout
+
+\begin_layout LyX-Code
+?x owl:onProperty ?p.
+\end_layout
+
+\begin_layout LyX-Code
+?u ?p ?v.
+ 
+\end_layout
+
+\begin_layout LyX-Code
+--->
+\end_layout
+
+\begin_layout LyX-Code
+?u rdf:type ?x.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Right rules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+not
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $X\sqsubseteq\mathbf{not}\,Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow X(x)\to(\mathbf{not}Y)(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow\lnot X(x)\lor\lnot Y(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow\lnot(X(x)\land Y(x))$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow(X(x)\land Y(x))\to\mathbf{False}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+only
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X\sqsubseteq R\mathbf{\,only}\,C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow X(x)\to(R\mathbf{\,only}\,C)(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow X(x)\to(R(x,y)\to C(y))$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Leftrightarrow(X(x)\land(R(x,y))\to C(y)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\lang australian
+RDF Rule for All
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+?X owl:allValuesFrom ?Y .
+     
+\end_layout
+
+\begin_layout LyX-Code
+?X owl:onProperty, ?p  .
+       
+\end_layout
+
+\begin_layout LyX-Code
+?u, ?p, ?v .
+                     
+\end_layout
+
+\begin_layout LyX-Code
+?u, rdf:type, ?X .
+               
+\end_layout
+
+\begin_layout LyX-Code
+--->                            
+\end_layout
+
+\begin_layout LyX-Code
+?v, rdf:type, ?Y .
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Additional rules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Equality rules (on owl:sameAs)
+\end_layout
+
+\begin_layout Itemize
+Rules for property axioms
+\end_layout
+
+\begin_layout Itemize
+Rules for owl:equivalentClass, disjoint, alldisjoint
+\end_layout
+
+\begin_layout Itemize
+Schema (TBox) inference axioms
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\lang australian
+Example: Functional property rule
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+IF 
+\begin_inset Formula $\mathrm{functional}(p)\mathsf{\,AND\,}p(x,y)\mathsf{\,AND\,}p(x,y)$
+\end_inset
+
+ THEN 
+\begin_inset Formula $y=z$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+?p rdf:type owl:FunctionalProperty .
+\end_layout
+
+\begin_layout LyX-Code
+?x ?p ?y .
+ 
+\end_layout
+
+\begin_layout LyX-Code
+?x ?p ?z .
+ 
+\end_layout
+
+\begin_layout LyX-Code
+---> 
+\end_layout
+
+\begin_layout LyX-Code
+?y  <owl:sameAs>  ?z
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+In Practice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Complete OWL 2 reasoners (Hermit, Pellet, ...)
+\end_layout
+
+\begin_layout Itemize
+usable on TBoxes, e.g.
+ to infer the class hierarchy
+\end_layout
+
+\begin_layout Itemize
+impractical on ABoxes (data)
+\end_layout
+
+\begin_layout Standard
+OWL 2 RL reasoners
+\end_layout
+
+\begin_layout Itemize
+efficient enough to reason on ABoxes (not complete for TBoxes)
+\end_layout
+
+\begin_layout Itemize
+Implemented in triple stores (GraphDB, ...) with rules engines (with RETE algorithm
+s)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+in GraphDB on can load their own ruleset
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\end_body
+\end_document
